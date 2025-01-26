@@ -5,7 +5,7 @@ import torch
 
 def build_args():
     
-    parser = argparse.ArgumentParser("This script is used to Source-free Universal Domain Adaptation")
+    parser = argparse.ArgumentParser("This script is used to Open-Set Domain Adaptation")
     
     parser.add_argument("--dataset", type=str, default="Office")
     parser.add_argument("--backbone_arch", type=str, default="resnet50")
