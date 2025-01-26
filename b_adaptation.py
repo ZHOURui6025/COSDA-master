@@ -252,7 +252,7 @@ if __name__ == "__main__":
         print(args.checkpoint)
         raise ValueError("NO SOURCE CHECKPOINT!!!")
     print(args.s_idx, args.t_idx)
-    save_dir = os.path.join(this_dir, "checkpoints_glc", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
+    save_dir = os.path.join(this_dir, "checkpoints_osda", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
                             args.target_label_type, args.note)
     pth_dir = os.path.join(this_dir, "models_pth", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
                             args.target_label_type, args.note)
