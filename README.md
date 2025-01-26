@@ -14,4 +14,4 @@ Open-Set Domain Adaptation (OSDA) aims to transfer knowledge from the labeled so
 - tqdm 4.62.3
 - faiss
 
-**Full version of code is available after acception.**
+**Full version of code is available after publication.**
