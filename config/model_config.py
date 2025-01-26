@@ -23,10 +23,6 @@ def build_args():
     
     parser.add_argument("--test", action="store_true")
     parser.add_argument("--seed", default=0, type=int)
-    # we set lam_psd to 0.3 for Office and VisDA, 1.5 for OfficeHome and DomainNet
-    # parser.add_argument("--lam_psd", default=0.3, type=float)
-    parser.add_argument("--w_0", default=0.55, type=float)
-    parser.add_argument("--rho", default=0.75, type=float)
     
     parser.add_argument("--source_train_type", default="smooth", type=str, help="vanilla, smooth")
     parser.add_argument("--target_label_type", default="OSDA", type=str)
