@@ -1,1 +1,0 @@
-To illustrate the success of our strategy, we compare the characteristics recovered by the baseline algorithm and our approach to the t-SNE. Our method clusters class characteristics more compactly, as illustrated in Fig.~\ref{fig:tsne}. This improves the decision border between known and unknown classes.
