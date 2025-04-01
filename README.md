@@ -13,8 +13,11 @@ Open-Set Domain Adaptation (OSDA) aims to transfer knowledge from the labeled so
 - numpy 1.21.2
 - tqdm 4.62.3
 - faiss
-  To install dependencies run
-- conda env create -f environment.yml
+
+To install dependencies run
+ ```
+conda env create -f environment.yml
+```
 
 # Methods
 
