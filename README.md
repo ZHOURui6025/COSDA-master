@@ -63,4 +63,4 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --ma
 
 ## Required Feature Analysis with ANNA
 
-<img src="https://github.com/ZHOURui6025/COSDA-master/blob/master/tsne/feature analysis.png" width="99%">
+<img src="https://github.com/ZHOURui6025/COSDA-master/blob/master/tsne/feature analysis.jpg" width="99%">
