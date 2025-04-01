@@ -38,9 +38,9 @@ python train_b.py --dataset Office --a_idx 2 --b_idx 1 --lr 0.001 --batch_size 3
 
 Run DomainNet
  ```
-python train_a.py --dataset DomainNet --a_idx 0 --lr 0.001 --epochs 30
-python train_a.py --dataset DomainNet --a_idx 1 --lr 0.001 --epochs 30
-python train_a.py --dataset DomainNet --a_idx 2 --lr 0.001 --epochs 30
+python train_a.py --dataset DomainNet --a_idx 0 --lr 0.005 --epochs 30
+python train_a.py --dataset DomainNet --a_idx 1 --lr 0.005 --epochs 30
+python train_a.py --dataset DomainNet --a_idx 2 --lr 0.005 --epochs 30
 python train_b.py --dataset DomainNet --a_idx 0 --b_idx 1 --lr 0.0005 --batch_size 32 --epochs 50 
 python train_b.py --dataset DomainNet --a_idx 0 --b_idx 2 --lr 0.0005 --batch_size 32 --epochs 50 
 python train_b.py --dataset DomainNet --a_idx 1 --b_idx 0 --lr 0.0005 --batch_size 32 --epochs 50 
@@ -54,6 +54,6 @@ python train_b.py --dataset DomainNet --a_idx 2 --b_idx 1 --lr 0.0005 --batch_si
 
 Run Distributed Training
 ```
-CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --master_port 10000  python train_a_ddp.py --dataset DomainNet --a_idx 0 --lr 0.001 --epochs 30 --backbone_arch clip
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --master_port 10000  python train_a_ddp.py --dataset DomainNet --a_idx 0 --lr 0.005 --epochs 30 --backbone_arch clip
 CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --master_port 10001  train_b_ddp.py --dataset DomainNet --a_idx 0 --b_idx 1 --lr 0.0005 --epochs 50 --backbone_arch clip
 ```
