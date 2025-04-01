@@ -62,9 +62,9 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --ma
 ```
 
 ## Required Feature Analysis with ANNA
-from left to right: OSBP, ANNA, COSDA
-from top to bottom: OfficeHome $Ar \rightarrow Rw$ task
-                    Office-31 $W \rightarrow D$ task
+### from left to right: OSBP, ANNA, COSDA
+
+### from top to bottom: OfficeHome $Ar \rightarrow Rw$ task, Office-31 $W \rightarrow D$ task
 
 <p align="center">
     <img src="https://github.com/ZHOURui6025/COSDA-master/blob/master/tsne/OfficeHome_a_0_b_3_osbp_00.png" width="32%">
