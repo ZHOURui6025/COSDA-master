@@ -318,7 +318,7 @@ if __name__ == "__main__":
     model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu],output_device=args.gpu, find_unused_parameters=True,  broadcast_buffers=False)
     print('Create Successfully!!!')
     print(args.s_idx, args.t_idx)
-    save_dir = os.path.join(this_dir, "checkpoints_glc", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
+    save_dir = os.path.join(this_dir, "checkpoints", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
                             args.target_label_type, args.note)
     pth_dir = os.path.join(this_dir, "models_pth", args.dataset, "s_{}_t_{}".format(args.s_idx, args.t_idx),
                             args.target_label_type, args.note)
