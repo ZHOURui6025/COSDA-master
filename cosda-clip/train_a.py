@@ -162,7 +162,7 @@ def main(args):
 
     
     source_data_list = open(os.path.join(args.sourcelist_data_dir, "image_unida_list.txt"), "r").readlines()
-    source_dataset = SFUniDADataset(args, args.source_data_dir, source_data_list, d_type="source", preload_flg=True)
+    source_dataset = SFUniDADataset(args, device, args.source_data_dir, source_data_list, d_type="source", preload_flg=True)
     source_dataloader = DataLoader(source_dataset, batch_size=args.batch_size, shuffle=True,
                                    num_workers=args.num_workers, drop_last=True)
     
@@ -171,7 +171,7 @@ def main(args):
         targetlist_data_dir = args.targetlist_domain_dir_list[idx]
         target_data_dir = args.target_domain_dir_list[idx]
         target_data_list = open(os.path.join(targetlist_data_dir, "image_unida_list.txt"), "r").readlines()
-        target_dataset = SFUniDADataset(args, target_data_dir, target_data_list, d_type="target", preload_flg=False)
+        target_dataset = SFUniDADataset(args, device, target_data_dir, target_data_list, d_type="target", preload_flg=False)
         target_dataloader_list.append(DataLoader(target_dataset, batch_size=args.batch_size, shuffle=False,
                                                  num_workers=args.num_workers, drop_last=False))
     
