@@ -35,7 +35,7 @@ def build_args():
     parser.add_argument("--source_train_type", default="smooth", type=str, help="vanilla, smooth")
     parser.add_argument("--target_label_type", default="OSDA", type=str)
     parser.add_argument("--target_private_class_num", default=None, type=int)
-    parser.add_argument("--note", default="GLC_CVPR23")
+    parser.add_argument("--note", default="COSDA")
     parser.add_argument('--int_epsilon', type=float, default=0.1, help='L_sta intervention below bound (default: 0.1)')
     parser.add_argument('--lambda_sta', type=float, default=0.001, help='hyperparameter for loss-sta weight (default: 1)')
     parser.add_argument('--lambda_beta_e', type=float, default=1, help='hyperparameter for loss-beta weight (default: 1)')
