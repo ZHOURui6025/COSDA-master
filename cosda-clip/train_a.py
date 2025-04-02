@@ -134,7 +134,7 @@ def main(args):
         checkpoint = torch.load(args.checkpoint, map_location=torch.device("cpu"))
         model.load_state_dict(checkpoint["model_state_dict"])
     else:
-        save_dir = os.path.join(this_dir, "checkpoints_glc", args.dataset, "source_{}".format(args.s_idx),
+        save_dir = os.path.join(this_dir, "checkpoints", args.dataset, "source_{}".format(args.s_idx),
                                 "source_{}_{}_{}".format(args.source_train_type, args.target_label_type, args.bn_type))
         pth_dir = os.path.join(this_dir, "models_pth", args.dataset, "source_{}".format(args.s_idx),
                                 "source_{}_{}_{}".format(args.source_train_type, args.target_label_type, args.bn_type))
