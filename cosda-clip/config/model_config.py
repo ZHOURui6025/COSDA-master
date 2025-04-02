@@ -82,18 +82,7 @@ def build_args():
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
     args.note = 'arch'+args.backbone_arch+'seed'+str(args.seed)+'_epo'+str(args.epochs)+'_bs'+str(args.batch_size)+'_Ktimes'+str(args.K_times)+'_exo'+str(args.lambda_exo)+ '_V'+str(args.V_times)+'_pl'+args.pl_method+'_kl'+str(args.lambda_kl)+'_itv'+str(args.log_interval)+'_lr'+str(args.lr)+'_da'+args.da_method+'_dt'+str(args.lambda_beta_d)+'_bn'+str(args.bn_type)+'_warm'+str(args.warm_up_epoch)+'_es'+str(args.lambda_beta_e)+'_th'+str(args.confidence_th)+'_label'+str(args.if_true_label)+'_atype'+str(args.adaptation_type)
     print(args.note)
-    if args.dataset  == 'tracking1':
-        args.dataset = 'OfficeHome'
-    elif args.dataset == 'tracking2':
-        args.dataset = 'Office'
-    elif args.dataset == 'tracking3':
-        args.dataset = 'image_CLEF'
-    elif args.dataset == 'tracking4':
-        args.dataset = 'image_app'
-    elif args.dataset == 'tracking5':
-        args.dataset = 'VisDA'
-    elif args.dataset == 'tracking6':
-        args.dataset = 'DomainNet'
+
     args.s_idx = args.a_idx
     args.t_idx = args.b_idx
 
