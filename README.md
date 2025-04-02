@@ -41,12 +41,12 @@ Run DomainNet
 python train_a.py --dataset DomainNet --a_idx 0 --lr 0.005 --epochs 30
 python train_a.py --dataset DomainNet --a_idx 1 --lr 0.005 --epochs 30
 python train_a.py --dataset DomainNet --a_idx 2 --lr 0.005 --epochs 30
-python train_b.py --dataset DomainNet --a_idx 0 --b_idx 1 --lr 0.0005 --batch_size 32 --epochs 50 
-python train_b.py --dataset DomainNet --a_idx 0 --b_idx 2 --lr 0.0005 --batch_size 32 --epochs 50 
-python train_b.py --dataset DomainNet --a_idx 1 --b_idx 0 --lr 0.0005 --batch_size 32 --epochs 50 
-python train_b.py --dataset DomainNet --a_idx 1 --b_idx 2 --lr 0.0005 --batch_size 32 --epochs 50
-python train_b.py --dataset DomainNet --a_idx 2 --b_idx 0 --lr 0.0005 --batch_size 32 --epochs 50 
-python train_b.py --dataset DomainNet --a_idx 2 --b_idx 1 --lr 0.0005 --batch_size 32 --epochs 50 
+python train_b_noddp.py --dataset DomainNet --a_idx 0 --b_idx 1 --lr 0.0005 --batch_size 32 --epochs 50 
+python train_b_noddp.py --dataset DomainNet --a_idx 0 --b_idx 2 --lr 0.0005 --batch_size 32 --epochs 50 
+python train_b_noddp.py --dataset DomainNet --a_idx 1 --b_idx 0 --lr 0.0005 --batch_size 32 --epochs 50 
+python train_b_noddp.py --dataset DomainNet --a_idx 1 --b_idx 2 --lr 0.0005 --batch_size 32 --epochs 50
+python train_b_noddp.py --dataset DomainNet --a_idx 2 --b_idx 0 --lr 0.0005 --batch_size 32 --epochs 50 
+python train_b_noddp.py --dataset DomainNet --a_idx 2 --b_idx 1 --lr 0.0005 --batch_size 32 --epochs 50 
 ```
 
 
