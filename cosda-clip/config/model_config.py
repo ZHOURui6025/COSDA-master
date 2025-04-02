@@ -20,7 +20,7 @@ def build_args():
     parser.add_argument("--lr", type=float, default=1e-2)
     parser.add_argument("--gpu", default='0', type=str)
     parser.add_argument("--num_workers", type=int, default=2)
-    parser.add_argument("--batch_size", type=int, default=64)
+    parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--weight_decay", type=float, default=1e-3)
     
     parser.add_argument("--test", action="store_true")
