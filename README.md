@@ -40,8 +40,8 @@ python train_b.py --dataset Office --a_idx 2 --b_idx 1 --lr 0.001 --batch_size 3
 
 Run COSDA with CLIP on DomainNet
 ```
-CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --master_port 10024 train_a_ddp.py --num_workers 4 --backbone_arch clip --dataset tracking5 --a_idx 0 --target_label_type OSDA --lr 0.001  --epochs 20
-CUDA_VISIBLE_DEVICE=4 python train_b_noddp.py --dataset tracking6 --a_idx 0 --b_idx 1 --lr 0.0005 --epochs 50  --backbone_arch clip
-CUDA_VISIBLE_DEVICE=4 python train_b_noddp.py --dataset tracking6 --a_idx 0 --b_idx 2 --lr 0.0005 --epochs 50 --backbone_arch clip
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run --nproc_per_node 2 --master_port 10024 train_a_ddp.py --num_workers 4 --backbone_arch clip --dataset DomainNet --a_idx 0 --target_label_type OSDA --lr 0.001  --epochs 20
+CUDA_VISIBLE_DEVICE=0 python train_b_noddp.py --dataset DomainNet --a_idx 0 --b_idx 1 --lr 0.0005 --epochs 50  --backbone_arch clip
+CUDA_VISIBLE_DEVICE=0 python train_b_noddp.py --dataset DomainNet --a_idx 0 --b_idx 2 --lr 0.0005 --epochs 50 --backbone_arch clip
 
 ```
