@@ -233,17 +233,7 @@ def train(args, epoch, best_dict, source_train_dataloader, target_train_dataload
                     {**process_dict(loss_dict)}
                 )
             )
-        if iter_count != 0 and iter_count % 1000 == 0 :
-            hscore, all_acc, knownacc, unknownacc = valid(args, model, target_test_dataloader, src_flg=False)
-            args.logger.info("Epoch {} Current: H-Score:{:.3f}, All{:.3f} KnownAcc:{:.3f}, UnknownAcc:{:.3f}".format(epoch_idx, hscore, all_acc, knownacc, unknownacc))
-            if hscore >= best_dict['best_h_score']:
-                best_dict['best_h_score'] = hscore
-                best_dict['best_known_acc'] = knownacc
-                best_dict['best_unknown_acc'] = unknownacc
-                best_dict['best_epoch_idx'] = epoch_idx
-                best_dict['best_all_acc'] = all_acc
-
-                checkpoint_file = "{}_{}_best_target_checkpoint.pth".format(args.dataset, args.backbone_arch)
+        
 
             args.logger.info("Best Epoch {}  : H-Score:{:.3f}, AllACC:{:.3f} KnownAcc:{:.3f}, UnknownAcc:{:.3f}".format(best_dict['best_epoch_idx'],
                                                                                                                         best_dict['best_h_score'],
