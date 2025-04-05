@@ -3,7 +3,7 @@ from tqdm import tqdm
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
-from torch.utils.data.dataloader import DataLoader
+
 def train_transform(resize_size=256, crop_size=224,):
 
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -75,6 +75,7 @@ class SFUniDADataset(Dataset):
         
         self.data_dir = data_dir 
         self.data_list = [item.strip().split() for item in data_list]
+        
         # Filtering the data_list
         if self.d_type == "source":
             # self.data_dir = args.source_data_dir
@@ -83,27 +84,17 @@ class SFUniDADataset(Dataset):
             # self.data_dir = args.target_data_dir
             self.data_list = [item for item in self.data_list if int(item[1]) in self.target_classes]
             
-        #self.pre_loading()
-        # self.resize_trans = transforms.Resize((256, 256))  # 仍然保留 resize 变换
+        self.pre_loading()
         
         self.train_transform = train_transform()
         self.test_transform = test_transform()
         
-    # def pre_loading(self):
-    #     if "Office" in self.dataset and self.preload_flg:
-    #         self.resize_trans = transforms.Resize((256, 256))
-    #         print("Dataset Pre-Loading Started ....")
-    #         self.img_list = [self.resize_trans(Image.open(os.path.join(self.data_dir, item[0])).convert("RGB")) for item in tqdm(self.data_list, ncols=60)]
-    #         print("Dataset Pre-Loading Done!")
-    #     else:
-    #         pass
-    # 替换pre_loading方法
     def pre_loading(self):
         if "Office" in self.dataset and self.preload_flg:
             self.resize_trans = transforms.Resize((256, 256))
-            # 只存储文件路径和标签
-            self.img_paths = [os.path.join(self.data_dir, item[0]) for item in self.data_list]
-            self.labels = [int(item[1]) for item in self.data_list]
+            print("Dataset Pre-Loading Started ....")
+            self.img_list = [self.resize_trans(Image.open(os.path.join(self.data_dir, item[0])).convert("RGB")) for item in tqdm(self.data_list, ncols=60)]
+            print("Dataset Pre-Loading Done!")
         else:
             pass
     
@@ -112,8 +103,7 @@ class SFUniDADataset(Dataset):
         if "Office" in self.dataset and self.preload_flg:
             img = self.img_list[img_idx]
         else:
-            img = Image.open(os.path.join(self.data_dir, img_f)).convert("RGB")
-        # img = self.resize_trans(img)
+            img = Image.open(os.path.join(self.data_dir, img_f)).convert("RGB")        
         return img, img_label
     
     def __len__(self):
@@ -127,22 +117,9 @@ class SFUniDADataset(Dataset):
             img_label = int(img_label)
         else:
             img_label = int(img_label) if int(img_label) in self.source_classes else len(self.source_classes)
+        
+        img_train = self.train_transform(img)
+        img_test = self.test_transform(img)
 
-        return self.train_transform(img), self.test_transform(img), img_label, img_idx
-
-
-class ContinuousDataloader:
-    def __init__(self, data_loader: DataLoader):
-        self.data_loader = data_loader
-        self.iter = iter(self.data_loader)
-
-    def __next__(self):
-        try:
-            data = next(self.iter)
-        except StopIteration:
-            self.iter = iter(self.data_loader)
-            data = next(self.iter)
-        return data
-
-    def __len__(self):
-        return len(self.data_loader)
+        return img_train, img_test, img_label, img_idx
+    
