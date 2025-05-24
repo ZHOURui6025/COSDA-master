@@ -46,5 +46,6 @@ CUDA_VISIBLE_DEVICE=0 python train_b_noddp.py --dataset DomainNet --a_idx 0 --b_
 
 ```
 
-# Code Contributors
+**Code Contributors** 
+<br>
 [wangwenxu](https://github.com/csrwang)
