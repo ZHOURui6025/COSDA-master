@@ -138,7 +138,7 @@ def train(args, epoch, best_dict, source_train_dataloader, target_train_dataload
         try:
             train_s, test_s, target_s, _ = next(source_loader_iter)
         except:
-            source_loader_iter =iter(target_train_dataloader)
+            source_loader_iter =iter(source_train_dataloader)
             train_s, test_s, target_s, _ = next(source_loader_iter)
 
         try:
